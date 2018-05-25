@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="action" namespace="/" extends="struts-default">
+		<!--登陆医生 -->
+		<action name="loginemployee" class="com.zfh.struts.loginemployee">
+			<result name="success">/employee/employee.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		<!--登陆管理员 -->
+		<action name="loginAdmin" class="com.zfh.struts.loginAdmin">
+			<result name="success">/admin/admin.jsp</result>
+			<result name="error">loginadmin.jsp</result>
+		</action>
+		<!--医生查看预约 -->
+		<action name="Yuyuea" class="com.zfh.struts.Yuyuea">
+			<result name="success">/employee/content.jsp</result>
+			<result name="error">/pagesuccess.jsp </result>
+		</action>
+		<!-- 管理员查看预约 -->
+		<action name="adminyuyue" class="com.zfh.struts.adminyuyue">
+			<result name="success">/admin/user/lookuser.jsp</result>
+			<result name="error">/pagesuccess.jsp </result>
+		</action>
+		<!-- 管理员查看user 注册使用者信息 -->
+		<action name="*adminuser" class="com.zfh.struts.adminuser"
+			method="{1}">
+			<result name="success">/admin/user/lookuser.jsp</result>
+			<result name="id">/admin/yuyue/lookuseryuyue.jsp</result>
+		</action>
+		<!-- 保存管理员添加的排诊的 -->
+		<action name="savepaizhen" class="com.zfh.struts.savepaizhen">
+			<result name="success">/admin/savepaizhen.jsp</result>
+		</action>
+		<!-- 用于通过jquery.load 在div里面加载医生个人排诊 -->
+		<action name="getempjsp" class="com.zfh.struts.getempjsp">
+			<result name="success">/admin/getperpaizhen.jsp</result>
+		</action>
+
+		<!-- 用于通过jquery.load在div里面加载医生信息 -->
+		<action name="departemp" class="com.zfh.struts.departemp">
+			<result name="success">/admin/employee/getdepartemp.jsp</result>
+
+		</action>
+
+	</package>
+
+
+	<package name="action1" namespace="/employee" extends="struts-default">
+		<!-- 和上面的医生预约重复 html页面 地址问题 用jsp 则不需要 jsp 要有获取项目地址的代码 -->
+		<action name="Yuyuea" class="com.zfh.struts.Yuyuea">
+			<result name="success">/employee/content.jsp</result>
+			<result name="error">/pagesuccess.jsp </result>
+		</action>
+		<!-- 退出医生登陆 -->
+		<action name="exitEmployee" class="com.zfh.struts.exitEmployee">
+			<result name="success">/index.jsp</result>
+		</action>
+
+	</package>
+
+
+	<package name="ajax" namespace="/ajax" extends="json-default">
+		<!-- 得到医生json -->
+		<action name="getemployee" class="com.zfh.struts.getemployee"
+			method="getjson">
+			<result type="json"></result>
+		</action>
+		<!-- 检查排诊页面数据日期是否存在 -->
+		<action name="datechongfu" class="com.zfh.struts.datechongfu"
+			method="getjson">
+			<result type="json"></result>
+		</action>
+		<!-- 删除排诊 -->
+		<action name="deletepaizhen" class="com.zfh.struts.deletepaizhen"
+			method="getjson">
+			<result type="json"></result>
+		</action>
+		<!-- 保存要更新的医生排诊时间 -->
+		<action name="updatepaizhen" class="com.zfh.struts.updatepaizhen"
+			method="getjson">
+			<result type="json"></result>
+		</action>
+
+		<!-- 保存添加的医生及其图片文件 -->
+		<action name="saveemployee" class="com.zfh.struts.saveemployee"
+			method="test">
+
+		</action>
+
+		<!-- 检查添加医生界面，医生编号是否重复 -->
+		<action name="employeechongfu" class="com.zfh.struts.employeechongfu"
+			method="getjson">
+		</action>
+		<!-- 删除医生 -->
+		<action name="deleteemployee" class="com.zfh.struts.deleteemployee"
+			method="getjson"></action>
+		<!-- 更新医生 -->
+		<action name="updateemployee" class="com.zfh.struts.updateemployee"
+			method="getjson"></action>
+		<!-- 管理员用户界面 input 下来提示框 -->
+		<action name="inputtishi" class="com.zfh.struts.inputtishi"
+			method="getjson">
+		</action>
+		<!-- 用于通过ajax修改医生的密码 -->
+        <action name="updateEmppass" class="com.zfh.struts.updateEmppass" method="getjson"></action>
+
+		<!-- android 登陆用户请求action -->
+		<action name="loginuser" class="com.zfh.struts.loginuser"
+			method="getjson"></action>
+		<!-- android 请求科室，和医生 两个方法 -->
+		<action name="request*" class="com.zfh.struts.request" method="{1}"></action>
+	</package>
+</struts>    
