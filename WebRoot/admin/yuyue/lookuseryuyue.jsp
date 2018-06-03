@@ -98,7 +98,8 @@ $('#tijiao').click(function(){
 		
 		
      </table>
-     <div id="suggest" style="border: blue 1px solid;position: absolute;display: none;font-size: 120%"> 
+     <div id="suggest"style="border: #FF7F24 3px solid;position: absolute;display: none;font-size: 120%;width: 134px;background-color: #FFAEB9;color: 
+#FFFFFF;font-size: 130%;"> 
       <p id="pp"> </p>
 		  <ul id="result">
 		   

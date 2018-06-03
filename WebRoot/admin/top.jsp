@@ -27,7 +27,7 @@ $(function(){
 		$(this).addClass("selected");
 	});	
 	$('#exit').click(function(){
-	alert("tiaozhaung");
+
 
 	});
 });	
@@ -47,8 +47,8 @@ $(function(){
             
     <div class="topright">    
     <ul>
-    <li><span><img src="images/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
-    <li><a href="#">关于</a></li>
+    <li><span><img src="images/help.png" title="帮助"  class="helpimg"/></span><a href="#" >帮助</a></li>
+    <li><a href="#" target="topFrame">关于</a></li>
     <li><a href="<%=basePath%>/adminexit.servlet" target="_parent" id="exit">退出</a></li>
     </ul>
      

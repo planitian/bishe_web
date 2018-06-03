@@ -134,9 +134,12 @@ console.log("进入");
 	 img = cropper.getDataURL();
 	 }
 	 console.log(img);
-	 var dataa={employeeid:$("#employeeid").val(),name:$("#name").val(),department:$("#keshi").val(),"imgbase":img,password:$("#password").val(),jiuemp:"<%=request.getParameter("employeeid")%>
-	"
-							};
+	 var dataa={employeeid:$("#employeeid").val(),
+	 name:$("#name").val(),
+	 department:$("#keshi").val(),
+	 imgbase:img,password:$("#password").val(),
+	 jiuemp:"<%=request.getParameter("employeeid")%>"
+	};
 							console.log(dataa);
 							$.ajax({
 								type : "POST",

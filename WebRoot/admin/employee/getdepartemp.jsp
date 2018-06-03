@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<th>医生编号<i class="sort"><img src="<%=path%>/images/px.gif"></img>
 					</i>
 					</th>
-					<th>头像</th>
+					<th >头像</th>
 					<th>姓名</th>
 					<th>密码</th>
 					<th>科室</th>
@@ -96,8 +96,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td style="text-align:center;font-size: 19px;"><s:property value="name"></s:property></td>
         <td style="text-align:center;font-size: 19px;"><s:property value="password"></s:property></td>
         <td style="text-align:center;font-size: 19px;"><s:property value="department.department"></s:property></td>
-        <td style="text-align:center;font-size: 19px;" ><input type="button"onclick="delet(<s:property value="employeeId" ></s:property>)" value="删除" style="font-size: 19px"></td>
-        <td style="text-align:center;font-size: 19px;" ><input type="button"onclick="xiugai('<s:property value="employeeId"></s:property>','<s:property value="imgurl" ></s:property>','<s:property value="name" ></s:property>','<s:property value="password"></s:property>')" value="修改"style="font-size: 19px"></td>
+        <td style="text-align:center;font-size: 19px;" ><input type="button"onclick="delet(<s:property value="employeeId" ></s:property>)" value="删除" style="font-size: 19px;width: 80px;height: 30px;background-color:#a6a9a6;border-radius: 10px; color: #ff0047;font-weight: bold;font-family: 黑体;"></td>
+        <td style="text-align:center;font-size: 19px;" ><input type="button"onclick="xiugai('<s:property value="employeeId"></s:property>','<s:property value="imgurl" ></s:property>','<s:property value="name" ></s:property>','<s:property value="password"></s:property>')" value="修改"style="font-size: 19px;width: 80px;height: 30px;background-color:#a6a9a6;border-radius: 10px;color: #152f57;font-weight: bold;font-family: 黑体;"></td>
         </tr> 
         
         </s:iterator>

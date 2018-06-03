@@ -45,7 +45,6 @@ $(function() {
 	</head>
 
 	<body style="background: #f0f9fd;">
-	<s:debug></s:debug>
 		<div class="user-box am-hide-sm-only">
 			<div class="user-img">
 				<img src="img/avatar-1.jpg" alt="user-img" title="Mat Helme"

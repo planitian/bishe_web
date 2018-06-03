@@ -74,7 +74,7 @@ $(document).ready(function() {
 		<td><input type="button" style="width: 134px;height: 30px;font-size: 120%;" value="确定" id="tijiao"/></td>
 		</tr>
 	
-		
+
      </table>
 	</div>
 	<div  id="main">

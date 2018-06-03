@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   </script>
   <body>
-  <s:debug></s:debug>
+
     <div class="rightinfo" align="center" id="bianhua">
 		<table class="tablelist">
 			<thead>
@@ -85,8 +85,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td style="text-align:center"><s:property value="xingqi"></s:property></td>
         <td style="text-align:center"><s:property value="am"></s:property></td>
         <td style="text-align:center"><s:property value="pm"></s:property></td>
-        <td style="text-align:center" ><input type="button"onclick="delet(<s:property value="id" ></s:property>)" value="删除"></td>
-        <td style="text-align:center" ><input type="button"onclick="upda('<s:property value="id"></s:property>','<s:property value="employee.name" ></s:property>','<s:property value="employee.employeeId" ></s:property>','<s:property value="date"></s:property>','<s:property value="xiuday"></s:property>')" value="修改"></td>
+        <td style="text-align:center" ><input type="button"onclick="delet(<s:property value="id" ></s:property>)" value="删除" style="font-size: 19px;width: 80px;height: 30px;background-color:#a6a9a6;border-radius: 10px; color: #ff0047;font-weight: bold;font-family: 黑体;"></td>
+        <td style="text-align:center" ><input type="button"onclick="upda('<s:property value="id"></s:property>','<s:property value="employee.name" ></s:property>','<s:property value="employee.employeeId" ></s:property>','<s:property value="date"></s:property>','<s:property value="xiuday"></s:property>')" value="修改"
+        style="font-size: 19px;width: 80px;height: 30px;background-color:#a6a9a6;border-radius: 10px;color: #152f57;font-weight: bold;font-family: 黑体;"
+        ></td>
         </tr> 
         
     </s:if>

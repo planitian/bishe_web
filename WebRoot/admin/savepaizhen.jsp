@@ -1,31 +1,34 @@
 <%@page import="com.zfh.Po.Employee"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
+	String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'savepaizhen.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'savepaizhen.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" href="css/style2.css" type="text/css"></link>
-<script type="text/javascript" src="<%=basePath%>/timejs/My97DatePicker/calendar.js"></script>
-  <script type="text/javascript" src="<%=basePath%>/timejs/My97DatePicker/WdatePicker.js"></script>
-  <script type="text/javascript" src="js/jquery-3.3.1.js"></script></head>
-  <script type="text/javascript">
+<script type="text/javascript"
+	src="<%=basePath%>/timejs/My97DatePicker/calendar.js"></script>
+<script type="text/javascript"
+	src="<%=basePath%>/timejs/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<script type="text/javascript">
   var count=1;
- <%  ArrayList<Employee> emplo=(ArrayList)session.getAttribute("allemployee");%>
-  function biaoge(){
-  var table=document.getElementById("tbo");
+ <%ArrayList<Employee> emplo=(ArrayList)session.getAttribute("allemployee");%>
+ function biaoge(){
+ var table=document.getElementById("tbo");
  var tt=document.createElement("tr");
  var td1=document.createElement("td");
  td1.setAttribute("align","center");
@@ -48,20 +51,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  input1.setAttribute("class","Wdate"); 
  input1.setAttribute("id","amstart"+count); 
  input1.onclick = Function("WdatePicker({dateFmt:'HH:mm:ss',minDate:'08:00:00',maxDate:'12:00:00'})");
-var pp=document.createElement("p");
-pp.innerHTML="-->";
-pp.setAttribute("class","cen"); 
+ var pp=document.createElement("p");
+ pp.innerHTML="-->";
+ pp.setAttribute("class","cen"); 
  var input2=document.createElement("input");
  input2.setAttribute("type","text"); 
  input2.setAttribute("name","amend"); 
  input2.setAttribute("class","Wdate"); 
  input2.setAttribute("id","amend"+count); 
  input2.onclick = Function("WdatePicker({dateFmt:'HH:mm:ss',minDate:'\#F{\$dp.$D(\\'amstart"+count+"\\')}',maxDate:'12:00:00'})");
-td3.appendChild(input1);
-td3.appendChild(pp);
-td3.appendChild(input2);
+ td3.appendChild(input1);
+ td3.appendChild(pp);
+ td3.appendChild(input2);
 
-var td4=document.createElement("td");
+ var td4=document.createElement("td");
  var input3=document.createElement("input");
  input3.setAttribute("type","text"); 
  input3.setAttribute("name","pmstart"); 
@@ -69,17 +72,17 @@ var td4=document.createElement("td");
  input3.setAttribute("id","pmstart"+count); 
  input3.onclick = Function("WdatePicker({dateFmt:'HH:mm:ss',minDate:'12:00:00',maxDate:'20:00:00'})"); 
  var pp1=document.createElement("p");
-pp1.innerHTML="-->";
-pp1.setAttribute("class","cen"); 
+ pp1.innerHTML="-->";
+ pp1.setAttribute("class","cen"); 
  var input4=document.createElement("input");
  input4.setAttribute("type","text"); 
  input4.setAttribute("name","pmend"); 
  input4.setAttribute("class","Wdate"); 
  input4.setAttribute("id","pmend"+count); 
  input4.onclick = Function("WdatePicker({dateFmt:'HH:mm:ss',minDate:'\#F{\$dp.$D(\\'pmstart"+count+"\\')}',maxDate:'20:00:00'})");
-td4.appendChild(input3);
-td4.appendChild(pp1);
-td4.appendChild(input4);
+ td4.appendChild(input3);
+ td4.appendChild(pp1);
+ td4.appendChild(input4);
   
   tt.appendChild(td1);
   tt.appendChild(td2);
@@ -151,8 +154,6 @@ async:false,
 data:{employeeid:$("#employee"+i).val(),date:$("#date"+i).val()},
 dataType:"json",
 success:function(date){
-
-alert(date.chongfu);
 if(date.chongfu){
   alert("第"+(i+1)+"data日期已存在");
   xin=false;
@@ -168,10 +169,9 @@ document.forms[0].submit();
 
 }
 function tan(){
-<%  ArrayList<Employee> user=(ArrayList)session.getAttribute("allemployee");
-   for(Employee emp:user){
- %>
-alert("<%=emp.getName() %>");
+<%ArrayList<Employee> user=(ArrayList)session.getAttribute("allemployee");
+   for(Employee emp:user){%>
+alert("<%=emp.getName()%>");
 <%}%>
 
  } 
@@ -179,56 +179,77 @@ alert("<%=emp.getName() %>");
  function shuju(){
 var select=document.getElementById("employee"+count);
 <%for(Employee emp:emplo){%>
-
 var opt=document.createElement("option");
 opt.setAttribute("value","<%=emp.getEmployeeId()%>");
 opt.innerHTML="<%=emp.getName()%>";
-select.appendChild(opt);
-<% }%>
-}
-
-
-<% Boolean ii=(Boolean)session.getAttribute("first");
-if(ii){%>
-alert("数据已经提交成功");
-<% session.setAttribute("first",false); %>
+		select.appendChild(opt);
 <%}%>
+	}
+<%Boolean ii=(Boolean)session.getAttribute("first");
+if(ii){%>
+	alert("数据已经提交成功");
+<%session.setAttribute("first",false);%>
+	
+<%}%>
+	$(document).ready(function() {
 
-$(document).ready(function(){
+	});
+</script>
+<body>
 
-});
- 
+	<div class="roww">
+		<input type="button" id="zengjia" value="增加一行"
+			class="btn btn-small submit" onclick="biaoge()" /> 
+			<input
+			type="submit" id="tijiao" value="提&nbsp;&nbsp;交"
+			class="btn btn-medium info" onclick="submit()" />
+	</div>
+	<div class="rightinfo" align="center">
+		<form action="savepaizhen.action" method="post">
+			<table class="tablelist" id="table">
+				<thead>
+					<tr bgcolor="#E6E6E6">
+						<th>员工编号<i class="sort"><img src="images/px.gif"></img> </i>
+						</th>
+						<th>日期</th>
+						<th>上午</th>
+						<th>下午</th>
 
-
-  </script>
-  <body>
-  
-  <div class="roww"><input type="button" id="zengjia" value="增加一行" class="btn btn-small submit"  onclick="biaoge()"/> <input type="submit" id="tijiao" value="提&nbsp;&nbsp;交" class="btn btn-medium info" onclick="submit()" />  </div>
-  <div class="rightinfo" align="center">
-  <form action="savepaizhen.action" method="post">
-		<table class="tablelist" id="table">
-			<thead>
-				<tr bgcolor="#E6E6E6" >
-					<th >员工编号<i class="sort"><img src="images/px.gif"></img>
-					</i>
-					</th>
-					<th >日期</th>
-					<th>上午</th>
-					<th>下午</th>
-					
-				</tr>
-			</thead>
-			<tbody id="tbo">
-        <tr>
-        <td align="center" width="11%"><select id="employee0" name="saveemployee"><%for(Employee emp:emplo){%> <option value="<%=emp.getEmployeeId() %>"><%=emp.getName() %></option> <%} %></select></td>
-        <td  align="center"> <input  name="date"  class="Wdate" type="text" id="date0" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d {%H+1}:%m:%s'})" /> </td>
-        <td width="400px"> <input  name="amstart" class="Wdate" type="text" id="amstart0" onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'08:00:00',maxDate:'12:00:00'})" />&nbsp;&nbsp; --><input  name="amend"   class="Wdate" type="text" id="amend0" onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'#F{$dp.$D(\'amstart0\')}',maxDate:'12:00:00'})" /></td>
-        <td width="400px"><input name="pmstart"  class="Wdate" type="text" id="pmstart0" onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'12:00:00',maxDate:'19:00:00'})" />&nbsp;&nbsp;--><input  name="pmend"  class="Wdate" type="text" id="pmend0" onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'#F{$dp.$D(\'pmstart0\')}',maxDate:'19:00:00'})" /></td>
-        </tr> 
-        </tbody>
-		</table>
+					</tr>
+				</thead>
+				<tbody id="tbo">
+					<tr>
+						<td align="center" width="11%"><select id="employee0"
+							name="saveemployee">
+								<%
+									for (Employee emp : emplo) {
+								%>
+								<option value="<%=emp.getEmployeeId()%>"><%=emp.getName()%></option>
+								<%
+									}
+								%>
+						</select></td>
+						<td align="center"><input name="date" class="Wdate"
+							type="text" id="date0"
+							onclick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d {%H+1}:%m:%s'})" />
+						</td>
+						<td width="400px"><input name="amstart" class="Wdate"
+							type="text" id="amstart0"
+							onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'08:00:00',maxDate:'12:00:00'})" />&nbsp;&nbsp;
+							--><input name="amend" class="Wdate" type="text" id="amend0"
+							onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'#F{$dp.$D(\'amstart0\')}',maxDate:'12:00:00'})" />
+						</td>
+						<td width="400px"><input name="pmstart" class="Wdate"
+							type="text" id="pmstart0"
+							onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'12:00:00',maxDate:'19:00:00'})" />&nbsp;&nbsp;--><input
+							name="pmend" class="Wdate" type="text" id="pmend0"
+							onclick="WdatePicker({dateFmt:'HH:mm:ss',minDate:'#F{$dp.$D(\'pmstart0\')}',maxDate:'19:00:00'})" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</form>
 	</div>
-  </body>
+</body>
 
 </html>
